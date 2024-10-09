@@ -19,8 +19,8 @@ export const useLocalStorage = ( clave, valorInicial = []) => {
     const guardarValor = (valorNuevo) => {
 
         try {
-            const nuevoValorAlmacenado = [...valorAlmacenado, valorNuevo] // creo un nuevo array con lo que tenía más lo nuevo
-            setValorAlmacenado(nuevoValorAlmacenado) // seteo el estado (Cambiar el estado)
+            const nuevoValorAlmacenado = [...valorAlmacenado, valorNuevo] 
+            setValorAlmacenado(nuevoValorAlmacenado) 
             window.localStorage.setItem(clave, JSON.stringify(nuevoValorAlmacenado))
         } catch (error) {
             console.error(`Error al guardar ${clave} del localStorage: ${error}`)
@@ -30,14 +30,14 @@ export const useLocalStorage = ( clave, valorInicial = []) => {
 
     const eliminarValor = (id) => {
         try {
-            //const nuevoValorAlmacenado = valorAlmacenado // copia
-            const nuevoValorAlmacenado = [...valorAlmacenado] // clona el array
-
-            const indice = nuevoValorAlmacenado.findIndex(item => item.id === id) // Busco indice del producto que están queriendo eliminadar dentro del array clonado
-            nuevoValorAlmacenado.splice(indice, 1) // Busco dentro del array clonado, el producto y lo borro
-            console.log(nuevoValorAlmacenado) // Acá tengo todo el array del estado menos el producto eliminado
+           
+            const nuevoValorAlmacenado = [...valorAlmacenado] 
+            const indice = nuevoValorAlmacenado.findIndex(item => item.id === id)
+            nuevoValorAlmacenado.splice(indice, 1)
+            console.log(nuevoValorAlmacenado)
             setValorAlmacenado(nuevoValorAlmacenado)
             window.localStorage.setItem(clave, JSON.stringify(nuevoValorAlmacenado))
+
         } catch (error) {
             console.error(`Error al eliminar ${clave} del localstorage con ${id} del producto ${error}`)
         }
@@ -48,7 +48,7 @@ export const useLocalStorage = ( clave, valorInicial = []) => {
         window.localStorage.setItem(clave, JSON.stringify(valorInicial))
         setValorAlmacenado(valorInicial)
     }
-    //           0
+
     return [ guardarValor, eliminarValor, limpiarValores, valorAlmacenado ]
 
 }

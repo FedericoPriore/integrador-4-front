@@ -103,6 +103,12 @@ body {
       display: flex;
       justify-content: center;
       flex-direction: column;
+
+      &__Mision,
+      &__Vision {
+        height: auto;
+        width: auto;
+      }
   
     }
     }

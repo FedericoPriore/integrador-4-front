@@ -1,13 +1,18 @@
-import { createContext, useEffect, useState } from "react";
-import { helperPeticionesHttp } from "../helpers/helper-peticiones-http";
+import { useState } from "react";
+import { createContext } from "react";
+import { helperPeticionesHttp } from "../helpers/helper-Peticiones-HTTP";
+import { useEffect } from "react";
 
-// ! CREANDO CONTEXTO
-// ! 1. Creamos el contexto
+//  CREANDO CONTEXTO
+
 const ProductosContext = createContext()
-// ! 2. Armamos el provider
+//  Armamos el provider
 const ProductosProvider = ( { children} ) => {
+
     const url = import.meta.env.VITE_BACKEND_PRODUCTOS
+
     const [productos, setProductos] = useState(null)
+
     const [productoAEditar, setProductoAEditar] = useState(null)
 
     useEffect(() => {
@@ -20,7 +25,6 @@ const ProductosProvider = ( { children} ) => {
 
             const prods = await helperPeticionesHttp(url, {})
 
-            // console.log(prods)
             setProductos(prods)
             
         } catch (error) {
@@ -31,7 +35,6 @@ const ProductosProvider = ( { children} ) => {
     const crearProductoContext = async (nuevoProducto) => {
 
         try {
-            // console.log(nuevoProducto)
 
             const options = {
                 method: 'POST',
@@ -40,8 +43,6 @@ const ProductosProvider = ( { children} ) => {
             }
 
             const newProducto = await helperPeticionesHttp(url, options)
-
-            console.log(newProducto)
 
             setProductos([...productos, newProducto])
             
@@ -52,7 +53,7 @@ const ProductosProvider = ( { children} ) => {
     }
 
     const actualizarProductoContext = async (productoEditado) => {
-        // console.log(productoEditado)
+      
         try {
 
             const options = {
@@ -61,7 +62,7 @@ const ProductosProvider = ( { children} ) => {
                 body: JSON.stringify(productoEditado)
             }
 
-            const urlEdicion = url + productoEditado.id // http://local.../productos/9
+            const urlEdicion = url + productoEditado.id 
 
             const editedProduct = await helperPeticionesHttp(urlEdicion, options)
 
@@ -87,7 +88,7 @@ const ProductosProvider = ( { children} ) => {
 
     return <ProductosContext.Provider value={data}>{ children }</ProductosContext.Provider>
 }
-// ! 3. Exportamos el contexto y provider
+//  3 Exportamos el contexto y provider
 
 export { ProductosProvider }
 export default ProductosContext
