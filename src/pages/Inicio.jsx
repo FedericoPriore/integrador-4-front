@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-
 import './Inicio.scss'
 import useTitulo from '../hooks/useTitulo'
 import Card from '../components/Card'

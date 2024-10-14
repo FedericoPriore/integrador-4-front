@@ -10,6 +10,8 @@ const ItemCarrito = ({producto}) => {
         eliminarProductoDelCarritoContext(id)
     }
 
+    const subtotal = producto.cantidad * producto.precio;
+
   return (
     <tr>
         <td>
@@ -18,9 +20,9 @@ const ItemCarrito = ({producto}) => {
         <td>{producto.nombre}</td>
         <td>{producto.cantidad}</td>
         <td>{producto.precio}</td>
-        <td>
-            <button onClick={() => handleEliminar(producto.id)}>Eliminar</button>
-        </td>
+        <td>${subtotal.toFixed(2)}</td>
+        <td><button className='buttonform' onClick={() => handleEliminar(producto.id)}>Eliminar</button></td>
+    
     </tr>
   )
 }

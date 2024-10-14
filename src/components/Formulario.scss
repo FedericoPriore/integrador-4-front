@@ -7,16 +7,22 @@
   background-color: rgba(133, 133, 133, 0.4);
   font-family: Arial, sans-serif; 
 }
+
+.buttonformcheck{
+  display: flex;
+  justify-content:center;
+  font-size: 1rem;
+}
 .buttonform {
-  width: 40%;
-  padding: 10px;
-  margin: 5px;
+  min-width: 50%;
+  padding: 14px;
+  margin: 8px;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
   background-color: rgb(114,61,144);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   
@@ -24,8 +30,9 @@
     background-color: rgb(165, 165, 165);
   }
 
-  &:not(:last-child) {
-    margin-bottom: 10px;
+  .h1-alta {
+    margin-left: 6vw;
+    font-weight: 100;
   }
 }
 

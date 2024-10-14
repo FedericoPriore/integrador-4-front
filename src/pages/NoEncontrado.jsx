@@ -1,7 +1,9 @@
 const NoEncontrado = () => {
   return (
-    <div>NoEncontrado</div>
-  )
-}
+    <>
+      <div>Page Not Found - 404</div>
+    </>
+  );
+};
 
 export default NoEncontrado

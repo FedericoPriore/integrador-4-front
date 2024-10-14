@@ -12,12 +12,12 @@ const Tabla = () => {
     <table className="tabla-alta">
       <thead>
         <tr>
+          <th>Foto</th>
           <th>Nombre</th>
           <th>Precio</th>
           <th>Stock</th>
           <th>Categoría</th>
           <th>Detalles</th>
-          <th>Foto</th>
           <th>Envío</th>
           <th>Acciones</th>
         </tr>

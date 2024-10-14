@@ -4,7 +4,7 @@
 @media (min-width: 576px) {
   .main-header {
     display: flex;
-    flex-direction: column; // Asegúrate de que esto funcione bien con otros elementos
+    flex-direction: column; 
   }
 
   #menu {
@@ -34,8 +34,8 @@
     font-weight: 500;
 
     @media (max-width: 768px) {
-      flex-direction: column; // Cambia a columna en móviles
-      font-size: medium; // Tamaño de fuente más pequeño
+      flex-direction: column; 
+      font-size: medium; 
       font-weight: 400;
     }
   }
@@ -62,12 +62,12 @@
 
 @media (max-width: 768px) {
   .nav-bar {
-    display: none; // Esconde la barra de navegación por defecto
+    display: none; 
   }
 
   #menu:checked + .nav-bar {
-    display: flex; // Muestra la barra de navegación si el menú está chequeado
-    flex-direction: column; // Asegúrate de que se apile verticalmente
+    display: flex; 
+    flex-direction: column; 
   }
 }
 
@@ -78,6 +78,7 @@
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-around;
+  
 
   &__logo-container {
     width: 7.75em;
@@ -115,11 +116,27 @@
   }
 
   &__carrito-container {
-    flex: 0 0 3rem;
-    background-color: rgb(255, 255, 255);
-    color: #ffffff;
-    padding-top: 1.2rem;
+    flex: 0 0 8rem; /* shorthand (grow shrink basis */
+    padding-inline: 15px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+
+    .carrito-count {
+      position: absolute;
+      background-color:rgb(114,61,144);
+      color: white;
+      font-size: 1rem;
+      border-radius: 50%;
+      padding: 0 5px;
+      min-width: 25px;
+    }
+    color: 
+    img {
+      width: 40px;
   }
+}
 }
 
 /* ----------------------------- */
@@ -163,6 +180,6 @@
 
 @media (max-width: 768px) {
   .menu-toogle {
-    display: block; // Muestra el menú en dispositivos móviles
+    display: block; 
   }
 }

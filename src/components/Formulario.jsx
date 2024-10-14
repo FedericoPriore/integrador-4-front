@@ -5,12 +5,13 @@ const Formulario = () => {
 
   const formInit = {
     id: null,
+    foto: '',
     nombre: '',
     precio: '',
     stock: '',
     categoria: '',
     detalles: '',
-    foto: '',
+    
     envio: false,
   }
 
@@ -131,10 +132,10 @@ const Formulario = () => {
             checked={form.envio} 
             onChange={handleChange} />
         </div>
-
+        <div className="buttonformcheck">
         <button className="buttonform"  type="submit">Guardar</button>
         <button className="buttonform" type="reset" onClick={handleReset}>Limpiar</button>
-
+        </div>
       </form>
     
     </>

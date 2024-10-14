@@ -27,16 +27,6 @@ const Contacto = () => {
         </div>
 
         <div className="Form-Container__Form-contact__grupo">
-          <label htmlFor="label-apellido">Apellido: </label>
-          <input className="inputcheck"
-            type="text"
-            name="apellido"
-            id="label-apellido"
-            placeholder="Ej: Palmeiras"
-          />
-        </div>
-
-        <div className="Form-Container__Form-contact__grupo">
           <label htmlFor="label-email">Correo Electrónico: * </label>
           <input className="inputcheck"
             type="email"

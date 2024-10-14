@@ -1,7 +1,8 @@
 .buttoncard {
+  align-self: center; 
   width: 50%;
   padding: 10px;
-  margin: 5px;
+  margin-top: auto;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
@@ -14,36 +15,48 @@
   &:hover {
     background-color: rgb(173, 174, 174);
   }
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  grid-gap: 1rem; 
+  justify-items: center; 
+  padding: 1rem;
 
-  &:not(:last-child) {
-    margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr; 
   }
 }
 
 .card {
-  width: 200px;
-  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%; 
   height: auto;
-  background-color: rgb(173, 174, 174);
-  overflow: hidden; /* Ajusta al contenedor, lo que sobra lo corta */
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  box-shadow: 0px 1px 5px 0px (0, 0, 0, 0.5);
-  transition: clip-path 0.8s;
-  margin-bottom: 2rem;
-// background-color: rgb(173, 174, 174);
+
   &:hover,
   &:focus {
     transform: scale(1.03) skew(0) rotate(2deg);
-    transform-origin: bottom;
     box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.5);
     background-color: rgb(35, 131, 185);
   }
 
   &__image-container {
-    height: 200px; // Ajuste aquí si es necesario
+    height: 200px;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px); 
+    clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px);
 
     &:hover,
     &:focus {
@@ -53,77 +66,19 @@
   }
 
   &__image {
-    max-width: 100%; // Asegura que la imagen no exceda el contenedor
-    height: auto; // Mantiene la proporción
-    object-fit: cover; 
+    max-width: 100%; 
+    height: auto;
+    object-fit: cover;
   }
 
   &__content {
-    padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      padding-top: 0.2rem;
-  }
-
-  &__heading {
-    padding-bottom: 0.5rem;
-  }
-
-  &__description {
-    color: black; // Color inicial
-    transition: color 0.3s ease; // Transición suave
-  }
-
-  &:hover &__description,
-  &:focus &__description {
-    color: white;
-  }
-
-  &:hover &__heading,
-  &:focus &__heading {
-    color: #ffffff;
-  }
-
-  @media (min-width: 576px) {
-    & {
-      height: 370px; // Altura para pantallas más grandes
-    }
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   @media (max-width: 768px) {
-    & {
-      min-width: 400px;
-      max-width: 500px;
-      height: 200px; // Altura menor para pantallas más pequeñas
-    }
-    
-    &__article {
-      display: flex;
-    }
-
-    &__image-container {
-      width: 40%;
-      clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
-
-      &:hover,
-      &:focus {
-        width: 40%;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-      }
-    }
+    height: auto;
   }
-}
-.section-cards {
-  &__header {
-    padding-bottom: 2rem;
-    padding-top: 0.8rem;
-    text-align: center;
-    background-color: #ffffff;
-  }
-}
-
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
 }
